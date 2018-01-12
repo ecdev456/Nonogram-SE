@@ -1,9 +1,11 @@
 #ifndef Assignment1_H
 #define Assignment1_H
 #include <iostream>
+#include "ecdev456.h"
 using namespace std;
 
 void Menu(char choice) {
+	bool checkwin = false;
 	do {
 		switch (choice) {
 
@@ -24,17 +26,29 @@ void Menu(char choice) {
 			//input Veronica's function
 			break;
 		case 'Q':
-			cout << " Would you like to save your game? ";
-			//Edwin's Quit function
 			break;
-		case 'q':
-			cout << " Would you like to save your game? ";
 			//Edwin's Quit function
+		case 'q':
+			break;
+			//Edwin's Quit function
+		case 'L': 
+			cout << "Loading previous game. ";
+			ReadSpecialFile();
+			break;
+		case 'l':
+			cout << "Loading previous game.";
+			ReadSpecialFile();
+			break;
+		case 'S':
+			cout << "Saving the board";
+			SaveToSpecialFile();
+			break;
+		case 's':
+			cout << "Saving the board";
+			SaveToSpecialFile();
 			break;
 		}
-	}
-	
-	while ((choice!= 'Q'||choice!='q')&& checkwins!=true)
-		//Veronica please check and get back to me on this part.
-	
+	}while (choice != 'Q' && choice != 'q' && checkwin != true);
+	cout << "Goodbye" << endl;
 }
+#endif
