@@ -178,6 +178,8 @@ public:
     cout << "To win the game you must find the hidden letter that is printed in the grid with X's\n";
     cout << "Each input you pick will print an X to the square of your choice\n";
     cout << "For example if you want to put an X on the top left hand side you will put 0 for row, and 0 for column\n";
+    cout << "\nNOTE: You may be close to winning at one point, but the game will only consider it a win if it's exact! GOOD LUCK \n";
+
     }
     };
 
