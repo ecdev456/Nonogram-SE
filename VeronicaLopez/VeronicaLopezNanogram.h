@@ -18,17 +18,7 @@ int emptyRow[12] = { 0,2,3,4,0,1,3,4,0,2,3,4 };
 int emptyCol[12] = { 1,1,1,1,2,2,2,2,3,3,3,3 };
 
 
-/*int validCheck()
-{
-	cout << "Enter row coordinate (1-5): ";
-	cin >> rCord;
-	while (rCord < 1 || rCord >5)
-	{
-		validCheck();
-	}
-	return rCord;
-}
-*/
+//creates one puzzle
 void printBoard()
 {
 	cout << "      _5_ _1_ _1_ _1_ _5_" << endl;
@@ -83,7 +73,7 @@ void userInput()
 {
 	cout << "Enter row coordinate (0-4): ";
 	cin >> rCord;
-	if (rCord < 0 || rCord > 4)
+	while (rCord < 0 || rCord > 4) //checks to see if you have entered a valid input for row coordinate
 	{
 		cout << "Invalid Input" << endl;
 		cout << "Enter row coordinate (0-4): ";
@@ -92,7 +82,7 @@ void userInput()
 	
 	cout << "Enter column coordinate (0-4): ";
 	cin >> cCord;
-	if (cCord < 0 || cCord > 4)
+	while (cCord < 0 || cCord > 4) //checks to see if you have entered a valid input for column coordinate
 	{
 		cout << "Invalid Input" << endl;
 		cout << "Enter column coordinate (0-4): ";
@@ -106,9 +96,21 @@ void remove() //takes in new coordinates for row and column and removed the X va
 {
 	cout << "Enter row coordinate (0-4): ";
 	cin >> rCord;
+	while (cCord < 0 || cCord > 4) //checks to see if you have entered a valid input for row coordinate
+	{
+		cout << "Invalid Input" << endl;
+		cout << "Enter row coordinate (0-4): ";
+		cin >> rCord;
+	}
 
 	cout << "Enter column coordinate (0-4): ";
 	cin >> cCord;
+	while (cCord < 0 || cCord > 4) //checks to see if you have entered a valid input for column coordinate
+	{
+		cout << "Invalid Input" << endl;
+		cout << "Enter column coordinate (0-4): ";
+		cin >> cCord;
+	}
 
 	currentBoard[rCord][cCord] = '_'; //replace any value to underscore
 	printBoard(); 
