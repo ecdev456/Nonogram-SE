@@ -3,24 +3,10 @@
 
 #include <iostream>
 #include <fstream>
+#include "VeronicaLopezNanogram.h"
 using namespace std;
 
-static char NonoArray[5][5];
-void DefaultArray()
-{
-
-
-	for (int i = 0; i < 5; i++)
-	{
-		for (int x = 0; x < 5; x++)
-		{
-			NonoArray[i][x] = '_';
-			
-		}
-	}
-	cout << "Done with initializing" << endl;
-}
-void ReadSpecialFile()
+void ReadSpecialFile()	//This will read txt file to load previous saved game. "Special File.txt"
 {
 	ifstream MyFile;
 	char input;
@@ -30,21 +16,21 @@ void ReadSpecialFile()
 	{
 		while (!MyFile.eof())
 		{
-			MyFile >> input;//noskipws >> input;
+			MyFile >> input;
 			if (YCoord == 5)	//reset the Y back to 0
 			{
 				YCoord = 0;
 				XCoord++;
 			}
-			NonoArray[XCoord][YCoord] = input;
+			currentBoard[XCoord][YCoord] = input;
 			YCoord++;
 
 		}
 		MyFile.close();
 	}
-	cout << "End Special File" << endl;
+	//cout << "End Special File" << endl;
 }
-void SaveToSpecialFile()
+void SaveToSpecialFile() //User will be writing to the "Special File.txt" in order to save progress.
 {
 	ofstream eFile;
 
@@ -54,27 +40,11 @@ void SaveToSpecialFile()
 			{
 				for (int x = 0; x < 5; x++)
 				{
-					eFile << NonoArray[i][x];
+					eFile << currentBoard[i][x];
 				}
 			}
 	}
 	eFile.close();
-	cout << "Successfully written to the Special file" << endl;
-}
-
-
-
-void PrintArray()	//TO be deleted, this is self checking
-{
-	cout << "Printing the Array" << endl;
-
-	for (int i = 0; i < 5; i++)
-	{
-		for (int x = 0; x < 5; x++)
-		{
-			cout << NonoArray[i][x] << " ";
-		}
-		cout << endl;
-	}
+	cout << "Board Saved! \n" << endl;
 }
 #endif // 
