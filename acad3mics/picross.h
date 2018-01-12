@@ -177,7 +177,7 @@ public:
     cout << "Welcome to Picross\n";
     cout << "To win the game you must find the hidden letter that is printed in the grid with X's\n";
     cout << "Each input you pick will print an X to the square of your choice\n";
-    cout << "For example if you want to put an X on the top right hand side you will put 0 for row, and 0 for column\n";
+    cout << "For example if you want to put an X on the top left hand side you will put 0 for row, and 0 for column\n";
     }
     };
 
