@@ -6,12 +6,14 @@
 
 using namespace std;
 
-
 int rCord, cCord;
 char currentBoard[5][5];
+
+//winRow and winCol stores the coordinates for winning the puzzle
 int winRow[13] = { 0,1,2,3,4,1,2,1,0,1,2,3,4 };
 int winCol[13] = { 0,0,0,0,0,1,2,3,4,4,4,4,4 };
 
+//emptyRow and emptyCol are the coordinates for the grid that are supposed ot be empty
 int emptyRow[12] = { 0,2,3,4,0,1,3,4,0,2,3,4 };
 int emptyCol[12] = { 1,1,1,1,2,2,2,2,3,3,3,3 };
 
@@ -56,6 +58,7 @@ void printBoard()
 	}
 }
 
+//creates an empty grid 
 void freshBoard()
 {
 	for (int row = 0; row < 5; row++)
@@ -68,12 +71,14 @@ void freshBoard()
 	printBoard();
 }
 
-
+//displays board with current X's
 void displayCurrentBoard()
 {
 	currentBoard[rCord][cCord] = 'X';
 	printBoard();
 }
+
+//takes in the coordinates that the user wants to add 
 void userInput()
 {
 	cout << "Enter row coordinate (0-4): ";
@@ -109,9 +114,10 @@ void remove() //takes in new coordinates for row and column and removed the X va
 	printBoard(); 
 }
 
+//checks to see if the player won and will return true or false
 bool checkWin()
 {
-	int count = 0;
+	int count = 0;//at the end there should be 13 X's, so this keeps track of them
 	bool win;
 	for (int i = 0; i < 13; i++)
 	{
@@ -120,24 +126,23 @@ bool checkWin()
 			count++;
 		}
 	}
-	if (count == 13)
+	if (count == 13) //if the user reaches to 13 X's check to see if they didn't have any extra X's
 	{
 		for (int j = 0; j < 12; j++)
 		{
 			if (currentBoard[emptyRow[j]][emptyCol[j]] == 'X')
 			{
-				win = false;
+				win = false; //if you see an X where is shouldn't be return false;
 				return win;
 			}
 		}
-		win = true;
+		win = true;//else return true
 		return win;
 	}
 	else
 	{
-		win = false;
+		win = false; //returns false if count didn't reach to 13
 		return win;
-	}
-		
+	}	
 }
 #endif
