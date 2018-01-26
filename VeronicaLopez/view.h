@@ -8,13 +8,32 @@ class view {
 private:
 	static const int size = 5;
 	int actNum[size][size];
-	char picrossGrid[size][size];
-	int rulloGrid[size][size];
+	char picrossGrid[size][size];//stores information of picross grid
+	int rulloGrid[size][size];//rullo grid
 	int vSum[size];
 	int hSum[size];
+	int rowP, columnP; //picross coordinate selection
+	int rowRullo, columnRullo; //rullo coordinate selection
 public:
 	view()
 	{
+		//initiallize picross grid info 
+		for (int row = 0; row < 5; row++)
+		{
+			for (int column = 0; column < 5; column++)
+			{
+				picrossGrid[row][column] = '_';
+			}
+		}
+		//intiallize picross array info
+		int picrossGrid[size][size] =
+		{
+			{2,6,6,9,4},
+			{4,2,2,1,2},
+			{8,7,2,2,3},
+			{3,9,7,3,8},
+			{6,7,4,9,4}
+		};
 
 	}
 
@@ -28,8 +47,53 @@ public:
 
 
 	}
+	void picrossInput()
+	{
+		cout << "Enter row coordinate (0-4): ";
+		cin >> rowP;
+		while (rowP < 0 || rowP > 4) //checks to see if you have entered a valid input for row coordinate
+		{
+			cout << "Invalid Input" << endl;
+			cout << "Enter row coordinate (0-4): ";
+			cin >> rowP;
+		}
 
-	//creates one puzzle
+		cout << "Enter column coordinate (0-4): ";
+		cin >> columnP;
+		while (columnP < 0 || columnP > 4) //checks to see if you have entered a valid input for column coordinate
+		{
+			cout << "Invalid Input" << endl;
+			cout << "Enter column coordinate (0-4): ";
+			cin >> columnP;
+		}
+
+		addCoordBoard();
+	}
+
+	void rulloInput()
+	{
+		cout << "Enter row coordinate (0-4): ";
+		cin >> rowRullo;
+		while (rowRullo < 0 || rowRullo > 4) //checks to see if you have entered a valid input for row coordinate
+		{
+			cout << "Invalid Input" << endl;
+			cout << "Enter row coordinate (0-4): ";
+			cin >> rowRullo;
+		}
+
+		cout << "Enter column coordinate (0-4): ";
+		cin >> columnRullo;
+		while (columnRullo < 0 || columnRullo > 4) //checks to see if you have entered a valid input for column coordinate
+		{
+			cout << "Invalid Input" << endl;
+			cout << "Enter column coordinate (0-4): ";
+			cin >> columnRullo;
+		}
+
+		//displayCurrentP();
+	}
+
+	//prints Picross Grid
 	void printPicross()
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -68,5 +132,12 @@ public:
 			cout << "|";
 			cout << endl;
 		}
+	}
+
+	void addCoordBoard()
+	{
+
+		picrossGrid[rowP][columnP] = 'X';
+		printPicross();
 	}
 };
