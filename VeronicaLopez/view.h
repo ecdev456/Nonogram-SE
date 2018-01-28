@@ -7,7 +7,14 @@ using namespace std;
 class view {
 private:
 	static const int size = 5;
-	int actNum[size][size];
+	int actNum[size][size] =
+	{
+		{1,1,1,1,1},
+		{1,1,1,1,1},
+		{1,1,1,1,1},
+		{1,1,1,1,1},
+		{1,1,1,1,1}
+	};
 	char picrossGrid[size][size];//stores information of picross grid
 	int rulloGrid[size][size] = 
 	{
@@ -32,9 +39,6 @@ public:
 				picrossGrid[row][column] = '_';
 			}
 		}
-
-		//intiallize picross array info
-	
 	}
 
 	~view()
@@ -84,7 +88,7 @@ public:
 			cout << "Enter column coordinate (0-4): ";
 			cin >> columnRullo;
 		}
-
+		actNum[rowRullo][columnRullo] = 0;
 		printRullo();
 	}
 
@@ -159,18 +163,18 @@ public:
 			{
 				
 				cout << "|_";
-				cout << rulloGrid[row][column];
-				/*
-				if (rulloGrid[row][column] == 'X')
+				//cout << rulloGrid[row][column];
+				
+				if (actNum[row][column] == 0)
 				{
 					SetConsoleTextAttribute(hConsole, 1);
-					cout << picrossGrid[row][column];
+					cout << rulloGrid[row][column];
 					SetConsoleTextAttribute(hConsole, 2);
 				}
 				else {
 					SetConsoleTextAttribute(hConsole, 2);
-					cout << picrossGrid[row][column];
-				}*/
+					cout << rulloGrid[row][column];
+				}
 
 				cout << "_";
 			}
