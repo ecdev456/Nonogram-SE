@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <Windows.h>
 #include "view.h"
 #include "model.h"
 
@@ -17,6 +18,7 @@ int main() {
 	Model m;
 	bool win = false;
 	char choose, userin;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	cout << "Enter 'P' to play Picross\nEnter 'R' to play Rullo. \n"
 		<< "Enter 'Q' to quit. \n";
 
@@ -26,10 +28,20 @@ int main() {
 
 		if (choose == 'R' || choose == 'r')
 		{
+			cout << "Welcome to Rullo! \n";
+			cout << "To win you'll need to deavtivate/activate appropriate numbers to fulfill the correct sum \n";
+			cout << "for all Vertical and Horizontal sums. ";
+			cout << "Each Horizontal & Vertical section has it's own sum. \n";
+			cout << "NOTE: All numbers are currently activated for you. \n";
+			cout << "Yellow = Active \n";
+			cout << "Light Green = Not Active \n";
+			cout << "Light Blue = Sum is fulfilled \n";
 			
 			View.printRullo();
 			do
 			{
+
+				SetConsoleTextAttribute(hConsole, 10);
 				cout << " 'R' remove numbes from grid \n";
 				cout << " 'A' to add numbers back to grid.\n";
 				cout << " 'Q' to quit game.\n";
