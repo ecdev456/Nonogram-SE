@@ -35,8 +35,7 @@ private:
 	int hValues[size] = { 9,17,13,12,15 };
 	int rowP, columnP; //picross coordinate selection
 	int rowRullo, columnRullo; //rullo coordinate selection
-	//int hSum[size] = { 0,0,0,0,0 };
-	//int vSum[size] = { 0,0,0,0,0 };
+
 public:
 	view()
 	{
@@ -98,14 +97,13 @@ public:
 			cin >> columnRullo;
 		}
 		actNum[rowRullo][columnRullo] = 0;
-		//printRullo();
 	}
 
 	//prints Picross Grid
 	void printPicross()
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleTextAttribute(hConsole, 2);
+		SetConsoleTextAttribute(hConsole, 14);
 		cout << "      _5_ _1_ _1_ _1_ _5_" << endl;
 		for (int row = 0; row < 5; row++)
 		{
@@ -127,12 +125,12 @@ public:
 				cout << "|_";
 				if (picrossGrid[row][column] == 'X')
 				{
-					SetConsoleTextAttribute(hConsole, 1);
+					SetConsoleTextAttribute(hConsole, 11);
 					cout << picrossGrid[row][column];
-					SetConsoleTextAttribute(hConsole, 2);
+					SetConsoleTextAttribute(hConsole, 14);
 				}
 				else {
-					SetConsoleTextAttribute(hConsole, 2);
+					SetConsoleTextAttribute(hConsole, 14);
 					cout << picrossGrid[row][column];
 				}
 
@@ -153,15 +151,15 @@ public:
 	void printRullo()
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleTextAttribute(hConsole, 2);
+		SetConsoleTextAttribute(hConsole, 14);
 		cout << "    ";
 		for (int i = 0; i < size; i++)
 		{
 			if (vAct[i] == 1)
 			{
-				SetConsoleTextAttribute(hConsole, 3);
+				SetConsoleTextAttribute(hConsole, 11);
 				cout << hValues[i] << "  ";
-				SetConsoleTextAttribute(hConsole, 2);
+				SetConsoleTextAttribute(hConsole, 14);
 			}
 			else
 			{
@@ -174,9 +172,9 @@ public:
 		{
 			if (hAct[row] == 1)
 			{
-				SetConsoleTextAttribute(hConsole, 3);
+				SetConsoleTextAttribute(hConsole, 11);
 				cout << vValues[row];
-				SetConsoleTextAttribute(hConsole, 2);
+				SetConsoleTextAttribute(hConsole, 14);
 			}
 			else
 			{
@@ -194,12 +192,12 @@ public:
 
 				if (actNum[row][column] == 0)
 				{
-					SetConsoleTextAttribute(hConsole, 1);
-					cout << rulloGrid[row][column];
 					SetConsoleTextAttribute(hConsole, 2);
+					cout << rulloGrid[row][column];
+					SetConsoleTextAttribute(hConsole, 14);
 				}
 				else {
-					SetConsoleTextAttribute(hConsole, 2);
+					SetConsoleTextAttribute(hConsole, 14);
 					cout << rulloGrid[row][column];
 				}
 
@@ -229,7 +227,7 @@ public:
 			cout << "Enter column coordinate (0-4): ";
 			cin >> columnP;
 		}
-		SetConsoleTextAttribute(hConsole, 2);
+		SetConsoleTextAttribute(hConsole, 14);
 		picrossGrid[rowP][columnP] = '_'; //replace any value to underscore
 		printPicross();
 		
@@ -256,7 +254,7 @@ public:
 			cout << "Enter column coordinate (0-4): ";
 			cin >> columnRullo;
 		}
-		SetConsoleTextAttribute(hConsole, 2);
+		SetConsoleTextAttribute(hConsole, 14);
 		actNum[rowRullo][columnRullo] = 1;
 		rulloGrid[rowRullo][columnRullo];// = '_'; //replace any value to underscore
 		//printRullo();
