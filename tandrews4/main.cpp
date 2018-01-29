@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "view.h"
+
 using namespace std;
 
 // valid choices for commands
@@ -32,7 +34,8 @@ int main() {
 
 	
 	do
-	{	
+	{
+		string input;
 		cout << "What would you like to do? ";
 		cin >> choose;
 		switch (choose) {
@@ -41,8 +44,9 @@ int main() {
 		case 'R':
 		case 'r':
 			cout << "Getting Grid ready for Rullo..." << endl;
-			View.printPicross(); //same grid so user see's it first and then adds their input
-			View.rulloInput();  //rullo input second
+			View.printRullo(); //same grid so user see's it first and then adds their input
+			View.rulloInput();
+			cout << endl; //rullo input second
 			//Model check Math functions
 			break;
 
@@ -53,19 +57,31 @@ int main() {
 			View.printPicross(); //same picross grid so that the user see's int first and then adds 
 								//their input
 			View.picrossInput();  //Picross input second
+			cout << endl;
+			
+			//Load Game option (Think about how to implement this function after user
+			//quits their Picross Game
+			//Save game option
+
 			break;
 
 		case 'D':
 		case 'd':
-			cout << "Pulling up Grid..." << endl;  //if  user just wants to see 
-			View.printPicross();					//what the grid looks like
+			cout << "Which Game grid would you like to display? Picross or Rullo? ";//if  user just wants to see the game grids
+			cin >> input;
+			if (input == "Rullo" || input == "rullo")
+				View.printRullo();
+			else if (input == "picross" || input == "Picross")
+				View.printPicross();
+			else
+			cout << "Invalid option!"<< endl;
+			break;			
 
 
 		case 'Q':
 		case 'q':
 			cout << "... Quitting game" << endl;
-
-			//edwin's load function(?)
+			handleQuit();
 			break;
 		default:
 			cout << "Invalid Option" << endl;
