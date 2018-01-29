@@ -11,24 +11,23 @@ using namespace std;
 // This is a C++11 feature, so you do need
 // to set your project options accordingly
 
-
-
 int main() {
 	view View;
 	Model m;
 	bool win = false;
 	char choose, userin;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	cout << "Enter 'P' to play Picross\nEnter 'R' to play Rullo. \n"
-		<< "Enter 'Q' to quit. \n";
-
+	do {
+		SetConsoleTextAttribute(hConsole, 10);
+		cout << "Enter 'P' to play Picross\nEnter 'R' to play Rullo. \n"
+			<< "Enter 'Q' to quit. \n";
 
 		cout << "What would you like to play? ";
 		cin >> choose;
 
 		if (choose == 'R' || choose == 'r')
 		{
-			cout << "Welcome to Rullo! \n";
+			cout << "\nWelcome to Rullo! \n";
 			cout << "To win you'll need to deavtivate/activate appropriate numbers to fulfill the correct sum \n";
 			cout << "for all Vertical and Horizontal sums. ";
 			cout << "Each Horizontal & Vertical section has it's own sum. \n";
@@ -36,11 +35,10 @@ int main() {
 			cout << "Yellow = Active \n";
 			cout << "Light Green = Not Active \n";
 			cout << "Light Blue = Sum is fulfilled \n";
-			
+
 			View.printRullo();
 			do
 			{
-
 				SetConsoleTextAttribute(hConsole, 10);
 				cout << " 'R' remove numbes from grid \n";
 				cout << " 'A' to add numbers back to grid.\n";
@@ -73,10 +71,11 @@ int main() {
 				}
 			} while (userin != 'Q' && userin != 'q' && win != true); //&& checkWin() != true);
 		}
-		
+
 		if (choose == 'P' || choose == 'p')
 		{
-			cout << "Welcome to Picross\n"
+			SetConsoleTextAttribute(hConsole, 10);
+			cout << "\nWelcome to Picross\n"
 				<< "To win the game you must find the hidden letter that is printed in the grid with X's\n"
 				<< "Each input you pick will print an X to the square of your choice\n"
 				<< "For example if you want to put an X on the top left hand side you will put 0 for row, and 0 for column\n"
@@ -84,11 +83,12 @@ int main() {
 			View.printPicross();
 			do
 			{
+				SetConsoleTextAttribute(hConsole, 10);
 				cout << " 'A' to add your 'X'.\n";
 				cout << " 'R' to remove your 'X'.\n";
 				cout << " 'Q' to quit game.\n";
-				cout << " 'L' to Load previous game\n";
-				cout << " 'S' to Save game\n";
+				//cout << " 'L' to Load previous game\n";
+				//cout << " 'S' to Save game\n";
 				cout << "What would you like to do? ";
 				cin >> userin;
 
@@ -97,10 +97,12 @@ int main() {
 				case 'A': //If A or a selectd, user input coordinates to add X.
 				case 'a':
 					View.picrossInput();
+					win = View.checkWinPicross();
 					break;
 				case 'R': //If R or r selected, user input coordinates to remove X
 				case 'r':
 					View.removePicross();
+					win = View.checkWinPicross();
 					break;
 				case 'Q':	// If Q or q is selected the program is exited.
 				case 'q':
@@ -109,9 +111,9 @@ int main() {
 				default:
 					cout << "Invalid Option" << endl;
 				}
-			} while (userin != 'Q' && userin != 'q'); //&& checkWin() != true);
+			} while (userin != 'Q' && userin != 'q'&& win != true); 
 		}
 
-
+	} while (choose != 'Q' && choose != 'q');
 
 };
