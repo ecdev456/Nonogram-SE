@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
-#include <string>
 #include "view.h"
+#include "model.h"
 
 using namespace std;
 
@@ -10,90 +10,95 @@ using namespace std;
 // This is a C++11 feature, so you do need
 // to set your project options accordingly
 
-view View;
 
-void handleDisplay()
-{
-	//Veronica's view function for displaying Grid
-}
-void handleQuit() {
-	exit(0);
-};
-
-void handleGame() {
-
-};
 
 int main() {
-	char choose;
-	cout << "Menu: \n" << "Choose your game (Rullo or Picross) \n"
-		<< " Enter 'P' or 'p' to play Picross or 'R' or 'r' to play Rullo. \n"
-		<< " Enter 'D' or 'd' to display Picross Grid. \n"
-		<< " Enter 'Q' or 'q' to quit game. \n";
+	view View;
+	Model m;
+	bool win = false;
+	char choose, userin;
+	cout << "Enter 'P' to play Picross\nEnter 'R' to play Rullo. \n"
+		<< "Enter 'Q' to quit. \n";
 
 
-	
-	do
-	{
-		string input;
-		cout << "What would you like to do? ";
+		cout << "What would you like to play? ";
 		cin >> choose;
-		switch (choose) {
-		
 
-		case 'R':
-		case 'r':
-			cout << "Getting Grid ready for Rullo..." << endl;
-			View.printRullo(); //same grid so user see's it first and then adds their input
-			View.rulloInput();
-			cout << endl; //rullo input second
-			//Model check Math functions
-			break;
-
-
-		case 'P':
-		case 'p':
-			cout << "Getting Grid ready for Picross.."<< endl;
-			View.printPicross(); //same picross grid so that the user see's int first and then adds 
-								//their input
-			View.picrossInput();  //Picross input second
-			cout << endl;
+		if (choose == 'R' || choose == 'r')
+		{
 			
-			//Load Game option (Think about how to implement this function after user
-			//quits their Picross Game
-			//Save game option
+			View.printRullo();
+			do
+			{
+				cout << " 'R' remove numbes from grid \n";
+				cout << " 'A' to add numbers back to grid.\n";
+				cout << " 'Q' to quit game.\n";
 
-			break;
+				cout << "What would you like to do? ";
+				cin >> userin;
 
-		case 'D':
-		case 'd':
-			cout << "Which Game grid would you like to display? Picross or Rullo? ";//if  user just wants to see the game grids
-			cin >> input;
-			if (input == "Rullo" || input == "rullo")
-				View.printRullo();
-			else if (input == "picross" || input == "Picross")
-				View.printPicross();
-			else
-			cout << "Invalid option!"<< endl;
-			break;			
+				switch (userin) {
 
-
-		case 'Q':
-		case 'q':
-			cout << "... Quitting game" << endl;
-			handleQuit();
-			break;
-		default:
-			cout << "Invalid Option" << endl;
+				case 'R': //If A or a selectd, user input coordinates to add X.
+				case 'r':
+					View.rulloInput(); //you're deactivating the number
+					m.CheckMath();
+					View.printRullo();
+					win = m.CheckWin();
+					break;
+				case 'A': //If R or r selected, user input coordinates to remove X
+				case 'a':
+					View.removeRullo(); //you're adding the number back
+					m.CheckMath();
+					View.printRullo();
+					win = m.CheckWin();
+					break;
+				case 'Q':	// If Q or q is selected the program is exited.
+				case 'q':
+					break;
+				default:
+					cout << "Invalid Option" << endl;
+				}
+			} while (userin != 'Q' && userin != 'q' && win != true); //&& checkWin() != true);
 		}
-	} while (choose!= 'Q' || choose != 'q');
+		
+		if (choose == 'P' || choose == 'p')
+		{
+			cout << "Welcome to Picross\n"
+				<< "To win the game you must find the hidden letter that is printed in the grid with X's\n"
+				<< "Each input you pick will print an X to the square of your choice\n"
+				<< "For example if you want to put an X on the top left hand side you will put 0 for row, and 0 for column\n"
+				<< "\nNOTE: You may be close to winning at one point, but the game will only consider it a win if it's exact! GOOD LUCK \n";
+			View.printPicross();
+			do
+			{
+				cout << " 'A' to add your 'X'.\n";
+				cout << " 'R' to remove your 'X'.\n";
+				cout << " 'Q' to quit game.\n";
+				cout << " 'L' to Load previous game\n";
+				cout << " 'S' to Save game\n";
+				cout << "What would you like to do? ";
+				cin >> userin;
 
-	if (choose != 'Q' || choose != 'q' || choose != 'P' || choose != 'p')
-		cout << "Invalid Option";
-	// continue code
-	else if (choose != 'D' || choose != 'd' || choose!= 'Q' || choose!= 'q')
-		cout << "Invalid Option ";
-	//continue code.
+				switch (userin) {
+
+				case 'A': //If A or a selectd, user input coordinates to add X.
+				case 'a':
+					View.picrossInput();
+					break;
+				case 'R': //If R or r selected, user input coordinates to remove X
+				case 'r':
+					View.removePicross();
+					break;
+				case 'Q':	// If Q or q is selected the program is exited.
+				case 'q':
+					break;
+
+				default:
+					cout << "Invalid Option" << endl;
+				}
+			} while (userin != 'Q' && userin != 'q'); //&& checkWin() != true);
+		}
 
 
 
