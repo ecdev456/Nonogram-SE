@@ -1,5 +1,5 @@
 # Nonogram-SE
-Software Engineer Project 1
+Software Engineer Project 2
 
 Rullo Assignment <br />
 Files you need for Running Game: <br />
