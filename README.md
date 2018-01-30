@@ -16,6 +16,9 @@ IF you need a Driver for direct testing:<br />
 ecdev456: <br />
 ecdevDriver.cpp   // You need model.h and view.h in your Project for this too work.<br />
 
+VeronicaLopez:<br />
+viewTest.h and viewTest.cpp // you need model.h in acad3mics folder in order for it to work<br />
+
 //=====================================================================<br />
 Project 1: <br />
 Recreation of Nonogram <br />
