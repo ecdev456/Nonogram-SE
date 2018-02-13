@@ -4,6 +4,7 @@
 
 using namespace std;
 
+Model DataCollection;
 CreateWindow::CreateWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateWindow)
@@ -28,7 +29,7 @@ void CreateWindow::on_reminderDescription_returnPressed()
     //description variable stores the information that the user inputed
     string description = input.toStdString();
     cout << description << endl;
-
+    DataCollection.SetDesc(description);
 }
 
 //Grab the information from the title name
@@ -38,6 +39,7 @@ void CreateWindow::on_reminderTitle_editingFinished()
 
     string title = titleName.toStdString();
     cout << title << endl;
+    DataCollection.SetTitle(title);
 }
 
 //Stores the date information from the date that was entered
@@ -47,6 +49,7 @@ void CreateWindow::on_dateEdit_editingFinished()
 
     string date = dateInfo.toStdString();
     cout << date << endl;
+    DataCollection.SetDate(date);
 }
 
 //Stores the time the user enters
@@ -57,4 +60,5 @@ void CreateWindow::on_timeEdit_editingFinished()
     string time = timeInfo.toStdString();
 
     cout << time << endl;
+    DataCollection.SetTime(time);
 }
