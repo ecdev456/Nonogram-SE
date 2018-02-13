@@ -1,16 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-//#include "createwindow.h"
-//#include "ui_createwindow.h"
+#include "nextdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->setStyleSheet("background-color:yellow;");
 }
-
 
 MainWindow::~MainWindow()
 {
@@ -19,16 +16,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    CreateWindow createWin;
-    createWin.setModal(true);
-    createWin.exec();
+   NextDialog editWindow;
+   editWindow.setModal(true);
+   editWindow.exec();
 }
-
-void MainWindow::on_pushButton_4_clicked()
-{
-    close();
-}
-
-
-
-
