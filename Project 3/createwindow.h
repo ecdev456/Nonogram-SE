@@ -32,6 +32,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_reminderDescription_returnPressed();
+
 private:
     Ui::CreateWindow *ui;
 
