@@ -18,21 +18,16 @@ public:
 
     ~CreateWindow();
 
-   /* CreateWindow(QWidget *parent) :
-        QDialog(parent),
-        ui(new Ui::CreateWindow)
-    {
-        ui->setupUi(this);
-    }
-
-   ~CreateWindow()
-    {
-        delete ui;
-    }*/
 private slots:
     void on_pushButton_clicked();
 
     void on_reminderDescription_returnPressed();
+
+    void on_reminderTitle_editingFinished();
+
+    void on_dateEdit_editingFinished();
+
+    void on_timeEdit_editingFinished();
 
 private:
     Ui::CreateWindow *ui;

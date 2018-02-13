@@ -30,3 +30,31 @@ void CreateWindow::on_reminderDescription_returnPressed()
     cout << description << endl;
 
 }
+
+//Grab the information from the title name
+void CreateWindow::on_reminderTitle_editingFinished()
+{
+    QString titleName = ui->reminderTitle->text();
+
+    string title = titleName.toStdString();
+    cout << title << endl;
+}
+
+//Stores the date information from the date that was entered
+void CreateWindow::on_dateEdit_editingFinished()
+{
+    QString dateInfo = ui->dateEdit->text();
+
+    string date = dateInfo.toStdString();
+    cout << date << endl;
+}
+
+//Stores the time the user enters
+void CreateWindow::on_timeEdit_editingFinished()
+{
+    QString timeInfo = ui->timeEdit->text();
+
+    string time = timeInfo.toStdString();
+
+    cout << time << endl;
+}
