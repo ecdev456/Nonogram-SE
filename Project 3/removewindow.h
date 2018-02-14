@@ -15,6 +15,9 @@ public:
     explicit RemoveWindow(QWidget *parent = 0);
     ~RemoveWindow();
 
+private slots:
+    void on_cancelRemove_clicked();
+
 private:
     Ui::RemoveWindow *ui;
 };

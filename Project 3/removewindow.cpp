@@ -12,3 +12,9 @@ RemoveWindow::~RemoveWindow()
 {
     delete ui;
 }
+
+//when cancel button has been clicked
+void RemoveWindow::on_cancelRemove_clicked()
+{
+    close();
+}
