@@ -17,13 +17,8 @@ CreateWindow::~CreateWindow()
     delete ui;
 }
 
-void CreateWindow::on_pushButton_clicked()
-{
-    close();
-}
-
 //Stores the information from the text box from create screen
-void CreateWindow::on_reminderDescription_returnPressed()
+void CreateWindow::on_reminderDescription_editingFinished()
 {
     QString input = ui->reminderDescription->text();
     //description variable stores the information that the user inputed
@@ -42,15 +37,7 @@ void CreateWindow::on_reminderTitle_editingFinished()
     DataCollection.SetTitle(title);
 }
 
-//Stores the date information from the date that was entered
-void CreateWindow::on_dateEdit_editingFinished()
-{
-    QString dateInfo = ui->dateEdit->text();
 
-    string date = dateInfo.toStdString();
-    cout << date << endl;
-    DataCollection.SetDate(date);
-}
 
 //Stores the time the user enters
 void CreateWindow::on_timeEdit_editingFinished()
@@ -61,4 +48,35 @@ void CreateWindow::on_timeEdit_editingFinished()
 
     cout << time << endl;
     DataCollection.SetTime(time);
+}
+
+//cancel button to close out of everything from create window
+void CreateWindow::on_pushButton_clicked()
+{
+    close();
+}
+
+//Stores the date information from the date that was entered
+void CreateWindow::on_dateEdit_editingFinished()
+{
+    QString dateInfo = ui->dateEdit->text();
+
+    string date = dateInfo.toStdString();
+    cout << date << endl;
+
+    DataCollection.SetDate(date);
+}
+
+void CreateWindow::on_doneButton_clicked()
+{
+    QObject * senderObj = sender();
+    if(senderObj->isWidgetType())
+    {
+        QPushButton * button = qobject_cast<QPushButton*>(senderObj);
+                if (button)
+                {
+                    cout << "pushed button" << endl;
+                }
+    }
+    close();
 }
