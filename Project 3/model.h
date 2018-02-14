@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include "createwindow.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Model{
@@ -26,9 +27,18 @@ public:
    void SetDesc(string desc){cout << "Done: "<< desc << endl;} //Retrieve the desc from the UserInput
 
 
-  // EditReminder(){};
+ void EditReminder(string desc, int choice){
+       DescArray[choice].clear();
+       DescArray[choice] = desc;
+      cout << "Success" << endl;
+   };
 
-  //  DeleteReminder(){};
+ void DeleteReminder(int Delete){
+       DescArray[Delete].clear();
+       // If you want you can add extra to delete the slot.
+       // use below
+       // delete [] remindername <--- object to be deleted
+ };
 
   void  PrintReminder() // Intent of this is to display Reminders in order
    {    // # of Reminder, Date, Time, Decription.
@@ -48,5 +58,8 @@ public:
 
 
 };
+
+#endif // MODEL_H#ifndef MODEL_H
+#define MODEL_H
 
 #endif // MODEL_H
