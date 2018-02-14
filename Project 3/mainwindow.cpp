@@ -1,14 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-//#include "createwindow.h"
-//#include "ui_createwindow.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->setStyleSheet("background-color:yellow;");
 }
 
 
@@ -17,6 +15,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//create window button was pushed
 void MainWindow::on_pushButton_clicked()
 {
     CreateWindow createWin;
@@ -24,6 +23,7 @@ void MainWindow::on_pushButton_clicked()
     createWin.exec();
 }
 
+//exit button on main screen
 void MainWindow::on_pushButton_4_clicked()
 {
     close();
