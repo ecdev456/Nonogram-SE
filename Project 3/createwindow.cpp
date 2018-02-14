@@ -75,10 +75,28 @@ void CreateWindow::on_doneButton_clicked()
         QPushButton * button = qobject_cast<QPushButton*>(senderObj);
                 if (button)
                 {
+                    //
                     if(tData.length() == 0)
                     {
                         DataCollection.SetTitle("No Title");
+
                     }
+
+                    if(dData.length() == 0)
+                    {
+                        DataCollection.SetDate("2/12/2018");
+                    }
+
+                    if(tmData.length() == 0)
+                    {
+                        DataCollection.SetTime("12:00 AM");
+                    }
+
+                    if(deData.length() == 0)
+                    {
+                        DataCollection.SetDesc("No Description");
+                    }
+
                     bool doneButton = 1;
 
                     DataCollection.SetButton(doneButton);
