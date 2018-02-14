@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "removewindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,14 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
 //create window button was pushed
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_createButton_clicked()
 {
     CreateWindow createWin;
     createWin.setModal(true);
@@ -29,6 +28,10 @@ void MainWindow::on_pushButton_4_clicked()
     close();
 }
 
-
-
-
+//remove button was pressed
+void MainWindow::on_removeButton_clicked()
+{
+    RemoveWindow removeWin;
+    removeWin.setModal(true);
+    removeWin.exec();
+}

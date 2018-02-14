@@ -19,7 +19,6 @@ public:
     ~CreateWindow();
 
 private slots:
-   // void on_pushButton_clicked();
 
     void on_reminderDescription_editingFinished();
 

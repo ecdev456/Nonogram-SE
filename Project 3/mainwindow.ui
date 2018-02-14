@@ -17,7 +17,7 @@
    <string notr="true">background-color: rgb(0, 0, 0);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="createButton">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -84,7 +84,7 @@
      <string>Update</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="removeButton">
     <property name="geometry">
      <rect>
       <x>350</x>
