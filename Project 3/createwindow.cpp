@@ -67,6 +67,7 @@ void CreateWindow::on_dateEdit_editingFinished()
     DataCollection.SetDate(date);
 }
 
+//keeps track of when the done button was pushed
 void CreateWindow::on_doneButton_clicked()
 {
     QObject * senderObj = sender();
@@ -75,6 +76,8 @@ void CreateWindow::on_doneButton_clicked()
         QPushButton * button = qobject_cast<QPushButton*>(senderObj);
                 if (button)
                 {
+                    bool doneButton = 1;
+                    DataCollection.SetDate(doneButton);
                     cout << "pushed button" << endl;
                 }
     }
