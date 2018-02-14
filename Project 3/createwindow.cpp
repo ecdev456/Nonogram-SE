@@ -1,5 +1,6 @@
 #include "createwindow.h"
 #include "ui_createwindow.h"
+//#include "model.h"
 #include <iostream>
 
 using namespace std;
@@ -75,6 +76,7 @@ void CreateWindow::on_doneButton_clicked()
                 if (button)
                 {
                     bool doneButton = 1;
+
                     DataCollection.SetButton(doneButton);
                     cout << "pushed button" << endl;
                 }

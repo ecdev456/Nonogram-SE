@@ -2,12 +2,13 @@
 #define REMOVEWINDOW_H
 
 #include <QDialog>
+#include "model.h"
 
 namespace Ui {
 class RemoveWindow;
 }
 
-class RemoveWindow : public QDialog
+class RemoveWindow : public QDialog, public Model
 {
     Q_OBJECT
 
@@ -17,6 +18,8 @@ public:
 
 private slots:
     void on_cancelRemove_clicked();
+
+    void on_doneRemove_clicked();
 
 private:
     Ui::RemoveWindow *ui;

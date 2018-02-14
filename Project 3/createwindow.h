@@ -2,14 +2,14 @@
 #define CREATEWINDOW_H
 
 #include <QDialog>
-#include "model.h"
-#include "ui_createwindow.h"
 
+//#include "ui_createwindow.h"
+#include "model.h"
 namespace Ui {
 class CreateWindow;
 }
 
-class CreateWindow : public QDialog
+class CreateWindow : public QDialog, public Model
 {
     Q_OBJECT
 
