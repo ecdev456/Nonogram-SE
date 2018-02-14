@@ -37,8 +37,6 @@ void CreateWindow::on_reminderTitle_editingFinished()
     DataCollection.SetTitle(title);
 }
 
-
-
 //Stores the time the user enters
 void CreateWindow::on_timeEdit_editingFinished()
 {
@@ -77,7 +75,7 @@ void CreateWindow::on_doneButton_clicked()
                 if (button)
                 {
                     bool doneButton = 1;
-                    DataCollection.SetDate(doneButton);
+                    DataCollection.SetButton(doneButton);
                     cout << "pushed button" << endl;
                 }
     }
