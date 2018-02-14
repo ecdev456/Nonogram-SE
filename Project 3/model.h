@@ -25,6 +25,7 @@ public:
    void SetDate(string date){cout << "Done: "<< date << endl;} //Retrieve the date from the UserInput
    void SetTime(string time){cout << "Done: "<< time << endl;} //Retrieve the time from the UserInput
    void SetDesc(string desc){cout << "Done: "<< desc << endl;} //Retrieve the desc from the UserInput
+   void SetButton(bool doneButton){cout << "Button: " << doneButton << endl;}//Retrieve the done button information
 
 
  void EditReminder(string desc, int choice){
@@ -60,6 +61,4 @@ public:
 };
 
 #endif // MODEL_H#ifndef MODEL_H
-#define MODEL_H
 
-#endif // MODEL_H
