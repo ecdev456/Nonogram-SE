@@ -75,7 +75,12 @@ void CreateWindow::on_doneButton_clicked()
         QPushButton * button = qobject_cast<QPushButton*>(senderObj);
                 if (button)
                 {
-                    //
+
+                    bool doneButton = 1;
+
+                    DataCollection.SetButton(doneButton);
+
+                    /*
                     if(tData.length() == 0)
                     {
                         DataCollection.SetTitle("No Title");
@@ -97,9 +102,10 @@ void CreateWindow::on_doneButton_clicked()
                         DataCollection.SetDesc("No Description");
                     }
 
-                    bool doneButton = 1;
+                   */
 
-                    DataCollection.SetButton(doneButton);
+                   // tData = "";
+
                     cout << "pushed button" << endl;
                 }
     }
