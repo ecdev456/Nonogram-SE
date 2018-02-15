@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include "model.h"
+#include <iostream>
+
+
+extern Model TempE;
 
 namespace Ui {
 class RemoveWindow;
@@ -10,6 +14,7 @@ class RemoveWindow;
 
 class RemoveWindow : public QDialog, public Model
 {
+
     Q_OBJECT
 
 public:
@@ -21,8 +26,11 @@ private slots:
 
     void on_doneRemove_clicked();
 
+    void on_removeChoice_editingFinished();
+
 private:
     Ui::RemoveWindow *ui;
 };
-
 #endif // REMOVEWINDOW_H
+
+

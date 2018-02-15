@@ -2,17 +2,25 @@
 #include "ui_removewindow.h"
 //#include "model.h"
 
+using namespace std;
+
+string info, info2;
 RemoveWindow::RemoveWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::RemoveWindow)
 {
     ui->setupUi(this);
 
+    // Here is where the loop is happening.
+for(int i = 0; i < TempE.GetNumData(); i++)
+{
+    info2 = to_string(i+1);
+    info += "Reminder ID: " + info2+ "   Title: " + TempE.GetTitle(i) + ", Date: " + TempE.GetDate(i) + ", Time: " + TempE.GetTime(i) + ", Desc: " + TempE.GetDesc(i) +"\n";
+ }
+// End loop here
 
-    TitleArray[0] = "first";//this is just a test
-
-    string info = TitleArray[0];
-    ui->textEdit_2->setText(QString::fromStdString((info)));
+ui->printInfo->setText(QString::fromStdString((info)));
+info = "";
 
 }
 
@@ -30,5 +38,26 @@ void RemoveWindow::on_cancelRemove_clicked()
 //done button has been pressed
 void RemoveWindow::on_doneRemove_clicked()
 {
+  // cout << "Inside Remove: " << samp << endl;
     close();
+}
+
+void RemoveWindow::on_removeChoice_editingFinished()
+{
+
+    int choiceRemove = ui->removeChoice->text().toInt();
+    QObject * senderObj = sender();
+    if(senderObj->isWidgetType())
+    {
+        QPushButton * button = qobject_cast<QPushButton*>(senderObj);
+                if (button)
+                {
+
+                   // bool doneButton = 1;
+                    TempE.SetChoice(choiceRemove);
+
+                }
+    }
+
+    cout << choice << endl;
 }
