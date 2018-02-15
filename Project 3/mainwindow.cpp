@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "removewindow.h"
 #include "createwindow.h"
+#include <QTimer>
 #include "model.h"
 
 Model TempE;
@@ -10,6 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->currentTimeBox->setTime(QTime::currentTime());
+   QTimer *timer = new QTimer(this);
+   connect(timer,SIGNAL(timeout()),this, SLOT(updateTime()));
+   timer->start(1000);
+    /* QTime cTime = QTime::currentTime();
+    QString timeString = cTime.toString();
+
+    cout << "current date time " << timeString.toStdString() << endl;
+*/
 }
 
 MainWindow::~MainWindow()
@@ -47,4 +58,9 @@ void MainWindow::on_removeButton_clicked()
     RemoveWindow removeWin;
     removeWin.setModal(true);
     removeWin.exec();
+}
+
+void MainWindow::updateTime()
+{
+    ui->currentTimeBox->setTime(QTime::currentTime());
 }

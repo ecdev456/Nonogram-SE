@@ -22,8 +22,11 @@ private slots:
 
     void on_removeButton_clicked();
 
+    void updateTime();
+
 private:
     Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H
+
