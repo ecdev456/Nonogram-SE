@@ -1,8 +1,8 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "mainwindow.h"
-#include "createwindow.h"
+//#include "mainwindow.h"
+//#include "createwindow.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -25,28 +25,29 @@ public:
        //User has selected to add a Reminder
        //check if their is data. if not data then set default data.
 
-       /*if(tData == sizeof(0))
+       if(tData.length() == 0)
        { tData = "Default Title";}
-       if(dData == nullptr)
+       if(dData.length() == 0)
        {dData = "2/14/18";}
-       if(tmData == nullptr)
+       if(tmData.length() == 0)
        {tmData = "8:00 AM";}
-       if(deData == nullptr)
+       if(deData.length() == 0)
        { deData = "Description Here";}
-*/
+
        //If we reached here, all the necessary data has been updated.
        //Default data plaeced if needed
        TitleArray[NumData] = tData;
        DateArray[NumData] = dData;
        TimeArray[NumData] = tmData;
        DescArray[NumData] = deData;
+       cout << "Title Current: "  << tData << endl;
        //Now it's placed and we increase the count of Reminders
        NumData++;
        //Now need to set back to NULL. Reason: if they are set, then they are replaced with the new data
-       //tData =nullptr;
-       //dData =nullptr;
-       //tmData =nullptr;
-       //deData =nullptr;
+       tData ="";
+       dData ="";
+       tmData ="";
+       deData ="";
     }
    void SetTitle(string title)  //Retrieve the title from the UserInput and place into StringArray
    {
