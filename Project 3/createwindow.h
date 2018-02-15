@@ -38,5 +38,4 @@ private:
 };
 
 
-
-#endif // CREATEWINDOW_H
+#endif

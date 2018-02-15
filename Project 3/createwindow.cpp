@@ -39,7 +39,11 @@ void CreateWindow::on_reminderTitle_editingFinished()
 //Stores the time the user enters
 void CreateWindow::on_timeEdit_editingFinished()
 {
-    QString timeInfo = ui->timeEdit->text();
+    QTime timeInput = ui->timeEdit->time();
+    QString timeInfo = timeInput.toString();
+    //cout << "time: " << timeI.toStdString() << endl;
+
+    //QString timeInfo = ui->timeEdit->text();
 
     string time = timeInfo.toStdString();
 
@@ -86,3 +90,4 @@ void CreateWindow::on_doneButton_clicked()
     }
     close();
 }
+

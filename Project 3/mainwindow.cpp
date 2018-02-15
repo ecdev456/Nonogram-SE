@@ -13,14 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->currentTimeBox->setTime(QTime::currentTime());
+
    QTimer *timer = new QTimer(this);
    connect(timer,SIGNAL(timeout()),this, SLOT(updateTime()));
-   timer->start(1000);
-    /* QTime cTime = QTime::currentTime();
-    QString timeString = cTime.toString();
+   timer->start(10000);
 
-    cout << "current date time " << timeString.toStdString() << endl;
-*/
 }
 
 MainWindow::~MainWindow()
@@ -62,5 +59,28 @@ void MainWindow::on_removeButton_clicked()
 
 void MainWindow::updateTime()
 {
+    //bool finishTest = 0;
+    string reminderInfo;
+    int timeToIterate = DataCollection.GetNumData();
     ui->currentTimeBox->setTime(QTime::currentTime());
+
+    QTime cTime = QTime::currentTime();
+    QString timeString = cTime.toString();
+    string timeA = timeString.toStdString();
+    //string B = timeA.substr(0,5);
+    cout << "current date time " << timeString.toStdString() << endl;
+    //string timeCompare = "14:56:00";
+
+    for(int i = 0; i < timeToIterate; i++)
+    {
+        string timeCompare = DataCollection.GetTime(i);
+        if (timeCompare.compare(0,5,timeA,0,5) == 0)
+        {
+            reminderInfo += "You have a reminder! \n" + DataCollection.GetTitle(i) + "\n" +DataCollection.GetDate(i) + " " + DataCollection.GetTime(i) + "\n" + DataCollection.GetDesc(i);
+            ui->reminderText->setText(QString::fromStdString((reminderInfo)));
+            reminderInfo = "";
+        }
+
+    }
+
 }
