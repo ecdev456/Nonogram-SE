@@ -68,6 +68,31 @@ public:
    {
        checkBool = doneButton;
    }
+    //Part of a test
+ /*string getTitleArray(sting t[20]) // for updatewindow to gain access into this array
+ {
+    TitleArray[20] = t[20];
+ }
+
+
+  string getDateArray(sting d[20]) // for updatewindow to gain access into Date array
+ {
+    DateArray[20] = d[20];
+ }
+
+
+string getTimeArray(sting tm[20]) // for updatewindow to gain access into this array
+ {
+    TimeArray[20] = tm[20];
+ }
+
+ string getDescArray(sting desc[20]) // for updatewindow to gain access into this array
+ {
+    DescArray[20] = desc[20];
+ }
+
+ */
+
 
 
  void EditReminder(string desc, int choice)
