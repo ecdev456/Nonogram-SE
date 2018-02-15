@@ -38,26 +38,11 @@ void RemoveWindow::on_cancelRemove_clicked()
 //done button has been pressed
 void RemoveWindow::on_doneRemove_clicked()
 {
-  // cout << "Inside Remove: " << samp << endl;
     close();
 }
 
 void RemoveWindow::on_removeChoice_editingFinished()
 {
-
     int choiceRemove = ui->removeChoice->text().toInt();
-    QObject * senderObj = sender();
-    if(senderObj->isWidgetType())
-    {
-        QPushButton * button = qobject_cast<QPushButton*>(senderObj);
-                if (button)
-                {
-
-                   // bool doneButton = 1;
-                    TempE.SetChoice(choiceRemove);
-
-                }
-    }
-
-    cout << choice << endl;
+    TempE.DeleteReminder(choiceRemove);
 }
