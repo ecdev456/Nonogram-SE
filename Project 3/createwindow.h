@@ -3,7 +3,6 @@
 
 #include <QDialog>
 
-//#include "ui_createwindow.h"
 #include "model.h"
 namespace Ui {
 class CreateWindow;

@@ -33,4 +33,3 @@ private:
 };
 #endif // REMOVEWINDOW_H
 
-
