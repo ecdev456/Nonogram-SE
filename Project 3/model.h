@@ -1,27 +1,32 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-//#include "mainwindow.h"
-//#include "createwindow.h"
 #include <iostream>
 #include <string>
-using namespace std;
-//sizeof(x)     //
 
+using namespace std;
 class Model{
     friend class RemoveWindow;
     friend class CreateWindow;
 private:
     bool checkBool = 0;     //This will configure if "Create" a reminder is set to true.
-    string TitleArray[20];  //Title Array data
-    string DateArray[20];   //Date Array  data
-    string TimeArray[20];   //Time Array data
-    string DescArray[20];   //Description data
-    string tData, dData, tmData, deData; // These will store data and add to array when ready.
-    int NumData= 0; //This will keep the count of number of Reminders
+     string TitleArray[20];  //Title Array data
+     string DateArray[20];   //Date Array  data
+     string TimeArray[20];   //Time Array data
+     string DescArray[20];   //Description data
+     string tData, dData, tmData, deData; // These will store data and add to array when ready.
+     int NumData, choice; //This will keep the count of number of Reminders
 public:
+     Model()
+     {
+         tData = "";
+         dData = "";
+         tmData ="";
+         deData ="";
+         NumData = 0;
+     }
    void CreateReminder(){
-       cout <<"In here" << endl;
+     //  cout <<"In here" << endl;
        //User has selected to add a Reminder
        //check if their is data. if not data then set default data.
 
@@ -40,6 +45,7 @@ public:
        DateArray[NumData] = dData;
        TimeArray[NumData] = tmData;
        DescArray[NumData] = deData;
+       cout << TitleArray[0] << DateArray [0] << TimeArray[0] << DescArray[0] << endl;
        //Now it's placed and we increase the count of Reminders
        NumData++;
        //Now need to set back to NULL. Reason: if they are set, then they are replaced with the new data
@@ -68,46 +74,51 @@ public:
    {
        checkBool = doneButton;
    }
-    //Part of a test
- /*string getTitleArray(sting t[20]) // for updatewindow to gain access into this array
- {
-    TitleArray[20] = t[20];
- }
+   void SetNumData(int x) //this temp solution for other objects
+   {
+       NumData = x;
+   }
 
 
-  string getDateArray(sting d[20]) // for updatewindow to gain access into Date array
- {
-    DateArray[20] = d[20];
- }
+   void EditReminder(int choice){ // step 1 clear data fields for choice
+         DescArray[choice-1].clear();
+         DateArray[choice-1].clear();
+         TimeArray[choice-1].clear();
+         /*
+          Question : How are they going to know what fields to set?
+          The user will require a prompt or something to signal to them Enter in new data.
+          */
+         //set new data
+          DateArray [choice-1] = dData; //dData holds new Date Data
+          DescArray[choice-1] = descdata;
+          TimeArray[choice-1] = tdata;
+        cout << "Success" << endl;
 
+ };
 
-string getTimeArray(sting tm[20]) // for updatewindow to gain access into this array
- {
-    TimeArray[20] = tm[20];
- }
+ string GetTitle(int x)
+ { return TitleArray[x];}
+ string GetDate(int x)
+ { return DateArray[x];}
+ string GetDesc(int x)
+ { return DescArray[x]; }
+string GetTime(int x)
+{ return TimeArray[x];}
+int GetNumData()
+{return NumData;}
 
- string getDescArray(sting desc[20]) // for updatewindow to gain access into this array
- {
-    DescArray[20] = desc[20];
- }
-
- */
-
-
-
- void EditReminder(string desc, int choice)
- {
-       DescArray[choice].clear();
-       DescArray[choice] = desc;
-      cout << "Success" << endl;
-   };
-
+void SetChoice(int x)
+{
+    choice = x;
+}
  void DeleteReminder(int choice){           //User selects to Remove a reminder and we shift accordingly
        //DescArray[choice].clear();
        // If you want you can add extra to delete the slot.
        // use below
        // delete [] remindername <--- object to be deleted
-     for(int i = choice;i < NumData; i++ ){ // This is where the shifting happens
+     for(int i = choice;i < NumData; i++ )
+     { // This is where the shifting happens
+       TitleArray[i-1] = TitleArray[i];
        DescArray[i-1] = DescArray [i];
        DateArray[i-1] = DateArray[i];
        TimeArray[i-1] = TimeArray[i];
@@ -115,6 +126,5 @@ string getTimeArray(sting tm[20]) // for updatewindow to gain access into this a
      NumData--; //the number of reminders is then shortened
  };
 };
-
+extern Model DataCollection;
 #endif // MODEL_H#ifndef MODEL_H
-
