@@ -40,7 +40,6 @@ public:
        DateArray[NumData] = dData;
        TimeArray[NumData] = tmData;
        DescArray[NumData] = deData;
-       cout << "Title Current: "  << tData << endl;
        //Now it's placed and we increase the count of Reminders
        NumData++;
        //Now need to set back to NULL. Reason: if they are set, then they are replaced with the new data
@@ -78,33 +77,18 @@ public:
       cout << "Success" << endl;
    };
 
-/* void DeleteReminder(int choice ) //choice =  whatever number reminder they want to delete
- {
-     //  2nd reminder
-
-     DescArray[choice-1].clear();
-
-
-     //
-       DescArray[Delete].clear();
+ void DeleteReminder(int choice){           //User selects to Remove a reminder and we shift accordingly
+       //DescArray[choice].clear();
        // If you want you can add extra to delete the slot.
        // use below
        // delete [] remindername <--- object to be deleted
- };*/
-
-  void  PrintReminder() // Intent of this is to display Reminders in order
-   {    // # of Reminder, Date, Time, Decription.
-   /*   cout << "# " << " Title " << " Date " << " Time " << endl;
-      for(int i = 0; i < NumData; i++)
-      {
-          cout << i+1 <<". : ";
-          cout << TitleArray[i] << " " << DateArray[i] << " " << TimeArray[i] << endl;
-          cout <<"Description: " << DescArray[i] << endl;
-      }*/
-    }
-
-
-
+     for(int i = choice;i < NumData; i++ ){ // This is where the shifting happens
+       DescArray[i-1] = DescArray [i];
+       DateArray[i-1] = DateArray[i];
+       TimeArray[i-1] = TimeArray[i];
+     }
+     NumData--; //the number of reminders is then shortened
+ };
 };
 
 #endif // MODEL_H#ifndef MODEL_H
