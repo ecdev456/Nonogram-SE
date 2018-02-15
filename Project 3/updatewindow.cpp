@@ -1,6 +1,6 @@
 #include "updatewindow.h"
 #include "ui_updatewindow.h"
-
+//#include "model.h"
 UpdateWindow::UpdateWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UpdateWindow)
@@ -22,6 +22,26 @@ void UpdateWindow::on_pushButton_clicked()
 {
     close();
 }
+
+//Model TempU;
+//User inputs their choice of which event they would like to update:
+//Qt Signal Text edit with user's input choice
+//TempU.setChoice(userChoice)
+//for(int i = userChoice; i < GetNumData(userChoice); i++) 
+/*
+    -Qt Signal button to pull up edit Window goes here
+    for(int i = 0; i < TempU.GetNumData(); i++)
+{
+    info2 = to_string(i+1);
+    info += "Reminder ID: " + info2+ "   Title: " + TempU.GetTitle(i) + ", Date: " + TempU.GetDate(i) + ", Time: " + TempU.GetTime(i) + ", Desc: " + TempU.GetDesc(i) +"\n";
+}
+    -Then Edit window pulls up with options to allow the user to update: Event Title, Date, Time, and Description
+    -Qt Edit String for Title:
+    -Qt Edit String for Date: 
+    -Qt Edit String for Description: 
+    
+*/
+
 
 // If on UpdateWindow, user inputs: an integer
 
