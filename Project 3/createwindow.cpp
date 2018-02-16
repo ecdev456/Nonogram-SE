@@ -41,9 +41,6 @@ void CreateWindow::on_timeEdit_editingFinished()
 {
     QTime timeInput = ui->timeEdit->time();
     QString timeInfo = timeInput.toString();
-    //cout << "time: " << timeI.toStdString() << endl;
-
-    //QString timeInfo = ui->timeEdit->text();
 
     string time = timeInfo.toStdString();
 
@@ -60,7 +57,9 @@ void CreateWindow::on_pushButton_clicked()
 //Stores the date information from the date that was entered
 void CreateWindow::on_dateEdit_editingFinished()
 {
-    QString dateInfo = ui->dateEdit->text();
+    QDate dateI = ui->dateEdit->date();
+    QString dateInfo = dateI.toString();
+    //QString dateInfo = ui->dateEdit->text();
 
     string date = dateInfo.toStdString();
     cout << date << endl;

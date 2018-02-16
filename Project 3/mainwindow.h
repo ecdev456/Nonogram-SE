@@ -15,12 +15,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
 private slots:
     void on_createButton_clicked();
 
     void on_pushButton_4_clicked();
 
     void on_removeButton_clicked();
+
+    void on_pushButton_2_clicked();
 
     void updateTime();
 

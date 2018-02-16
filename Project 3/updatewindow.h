@@ -1,8 +1,10 @@
 #ifndef UPDATEWINDOW_H
 #define UPDATEWINDOW_H
+#include "model.h"
 
 #include <QDialog>
 
+extern Model updateModel;
 namespace Ui {
 class UpdateWindow;
 }
@@ -16,9 +18,16 @@ public:
     ~UpdateWindow();
 
 private slots:
-    void on_pushButton_2_clicked();
 
-    void on_pushButton_clicked();
+    void on_cancelUpdate_clicked();
+
+    void on_doneUpdate_clicked();
+
+    void on_updateChoice_editingFinished();
+
+    void on_reminderDone_clicked();
+
+    void on_updateCancel_clicked();
 
 private:
     Ui::UpdateWindow *ui;

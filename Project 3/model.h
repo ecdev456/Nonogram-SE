@@ -15,7 +15,7 @@ private:
      string TimeArray[20];   //Time Array data
      string DescArray[20];   //Description data
      string tData, dData, tmData, deData; // These will store data and add to array when ready.
-     int NumData, choice; //This will keep the count of number of Reminders
+     int NumData, choice1; //This will keep the count of number of Reminders
 public:
      Model()
      {
@@ -79,22 +79,33 @@ public:
        NumData = x;
    }
 
-
+   void EditTitle(int x, string data)
+   {
+       cout << "x is: " << x << endl;
+       cout << "data is " << data << endl;
+       TitleArray[x] = data;
+   }
+   void EditDate(int x, string data)
+   {
+       DateArray[x] = data;
+   }
+    void EditTime(int x, string data)
+    {
+        TimeArray[x] = data;
+    }
+    void EditDesc(int x, string data)
+    {
+        DescArray[x] = data;
+    }
    void EditReminder(int choice){ // step 1 clear data fields for choice
+       choice1 = choice;
          DescArray[choice-1].clear();
          DateArray[choice-1].clear();
          TimeArray[choice-1].clear();
-         /*
-          Question : How are they going to know what fields to set?
-          The user will require a prompt or something to signal to them Enter in new data.
-          */
-         //set new data
           DateArray [choice-1] = dData; //dData holds new Date Data
-          DescArray[choice-1] = descdata;
-          TimeArray[choice-1] = tdata;
-        cout << "Success" << endl;
-
- };
+          DescArray[choice-1] = deData;
+          TimeArray[choice-1] = tmData;
+ }
 
  string GetTitle(int x)
  { return TitleArray[x];}
@@ -107,9 +118,14 @@ string GetTime(int x)
 int GetNumData()
 {return NumData;}
 
+int GetChoice()
+{
+    return choice1;
+}
+
 void SetChoice(int x)
 {
-    choice = x;
+    choice1 = x;
 }
  void DeleteReminder(int choice){           //User selects to Remove a reminder and we shift accordingly
        //DescArray[choice].clear();
@@ -124,7 +140,7 @@ void SetChoice(int x)
        TimeArray[i-1] = TimeArray[i];
      }
      NumData--; //the number of reminders is then shortened
- };
+ }
 };
 extern Model DataCollection;
 #endif // MODEL_H#ifndef MODEL_H

@@ -1,11 +1,26 @@
 #include "updatewindow.h"
 #include "ui_updatewindow.h"
 //#include "model.h"
+
+string infoUpdate, infoUpdate2;
+int c = updateModel.GetChoice();
+
 UpdateWindow::UpdateWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UpdateWindow)
 {
     ui->setupUi(this);
+
+
+    for(int i = 0; i < updateModel.GetNumData(); i++)
+    {
+        infoUpdate2 = to_string(i+1);
+        infoUpdate += "Reminder ID: " + infoUpdate2+ "   Title: " + updateModel.GetTitle(i) + ", Date: " + updateModel.GetDate(i) + ", Time: " + updateModel.GetTime(i) + ", Desc: " + updateModel.GetDesc(i) +"\n";
+     }
+    // End loop here
+
+    ui->updateInfo->setText(QString::fromStdString((infoUpdate)));
+    infoUpdate = "";
 }
 
 UpdateWindow::~UpdateWindow()
@@ -13,112 +28,57 @@ UpdateWindow::~UpdateWindow()
     delete ui;
 }
 
-void UpdateWindow::on_pushButton_2_clicked()
+void UpdateWindow::on_cancelUpdate_clicked()
 {
     close();
 }
 
-void UpdateWindow::on_pushButton_clicked()
+void UpdateWindow::on_doneUpdate_clicked()
 {
-    close();
+    string title = updateModel.GetTitle(c);
+    string desc = updateModel.GetDesc(c);
+    QString time1 = QString::fromStdString(updateModel.GetTime(c));
+    QString date1 = QString::fromStdString(updateModel.GetDate(c));
+
+    //cout << "title: " << data1.to << endl;
+
+    ui->updateTitle->setText(QString::fromStdString(title));
+    ui->updateTime->setTime(QTime::fromString(time1));
+    ui->updateDate->setDate(QDate::fromString(date1));
+    ui->updateDesc->setText(QString::fromStdString(desc));
+
 }
 
-//Model TempU;
-//User inputs their choice of which event they would like to update:
-//Qt Signal Text edit with user's input choice
-//TempU.setChoice(userChoice)
-//for(int i = userChoice; i < GetNumData(userChoice); i++) 
-/*
-    -Qt Signal button to pull up edit Window goes here
-    for(int i = 0; i < TempU.GetNumData(); i++)
+void UpdateWindow::on_updateChoice_editingFinished()
 {
-    info2 = to_string(i+1);
-    info += "Reminder ID: " + info2+ "   Title: " + TempU.GetTitle(i) + ", Date: " + TempU.GetDate(i) + ", Time: " + TempU.GetTime(i) + ", Desc: " + TempU.GetDesc(i) +"\n";
+    int choiceEntered = ui->updateChoice->text().toInt();
+    updateModel.SetChoice(choiceEntered);
+    //updateModel.EditReminder(choiceEntered);
 }
-    -Then Edit window pulls up with options to allow the user to update: Event Title, Date, Time, and Description
-    -Qt Edit String for Title:
-    -Qt Edit String for Date: 
-    -Qt Edit String for Description: 
-    
-*/
 
-
-// If on UpdateWindow, user inputs: an integer
-
-/* for (int i = 0; i < 20; i++)
+void UpdateWindow::on_reminderDone_clicked()
 {
-  if(Userinput
- *TitlePtr = DataGrab.getTitleArray[i]; //Pointer that points to each element in the TitleArray[]
- *DatePtr = DataGrab.getDateArray[i];   //Pointer that points to each element in the DateArray[]
- *TimePtr = DataGrab.getTimeArray[i];   //Pointer that points to each element in the TimeArray[]
- *DescPtr = DataGrab.getDescArray[i];   //Pointer that points to each element in the DescArray[]
-  //Pull up window that has event showing all the user's inputs for the Event Title, Date, Time, and Description.
-  //Then gives the user the option to edit the strings in each of the array element.
-  //User either clicks 'DONE' to save edit or 'CANCEL'to cancel edit.
-  i++; //moves on to the next element in the array.
-
-}
-//The For Loop above is just a test. Hopefully it can at least give us an idea on how to approach getting our Update to work
-
-//Below is also another test
-void UpdateWindow::on_reminderTitle_editingFinished()
-{
-   //Edit String QSignal Button(?)
-    if(senderObj->isWidgetType())
-    {
-        QPushButton * button = qobject_cast<QPushButton*>(senderObj);
-
-                    if(tData.length() == 0)
-                    {
-                        DataCollection.SetTitle("No Title");
-
-                    }
-}
-void UpdateWindow::Time_editingFinished()
-{
-    //Edit String QSignal Button(?)
     QObject * senderObj = sender();
     if(senderObj->isWidgetType())
     {
-        //QStringEditButton * button = qobject_cast<QPushButton*>(senderObj);
+        QPushButton * button = qobject_cast<QPushButton*>(senderObj);
+                if (button)
+                {
+                    int num = c;
+                    cout << "num: " << num << endl;
+                    QString titleName = ui->updateTitle->text();
+                    string titleT = titleName.toStdString();
+                    //cout << titleT << endl;
+                    //updateMo2.SetTitle(titleT);
+                    updateModel.EditTitle(num, titleT);
+                    //updateMo2.CreateReminder()
 
-
-                    if(dData.length() == 0)
-                    {
-                        DataCollection.SetDate("2/12/2018");
-                    }
-}
-void UpdateWindow::on_Date_editingFinished()
-{
-    //Edit String QSignal Button(?) goes here
-    if(senderObj->isWidgetType())
-    {
-        //QStringEditButton * button = qobject_cast<QPushButton*>(senderObj);
-
-
-                    if(tmData.length() == 0)
-                    {
-                        DataCollection.SetTime("12:00 AM");
-                    }
+                }
+    }
+    close();
 }
 
-void UpdateWindow::on_reminderDescription_editingFinished()
+void UpdateWindow::on_updateCancel_clicked()
 {
-   //Edit String QSignal Button(?) goes here
-    if(senderObj->isWidgetType())
-    {
-        //QStringEditButton * button = qobject_cast<QPushButton*>(senderObj);
-
-                    if(deData.length() == 0)
-                    {
-                        DataCollection.SetDesc("No Description");
-                    }
-
-                   */
-
-                   // tData = "";
-
-                    //cout << "edit finished" << endl;
-                //}
-    //}
-    //close();
+    close();
+}
