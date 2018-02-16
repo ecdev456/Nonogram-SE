@@ -1,3 +1,19 @@
+Software Engineer Project 3 <br />
+
+Reminder Application. <br />
+
+The user is presented with an Application to Create, Update, Remove a Reminder. When the time comes, the application will notify the user with the reminder.<br />
+
+Note:<br />
+1. When the Reminder time is reached, the Update and Remove lists will be updated. <br />
+2. If the Reminder is removed, the reminder will not trigger. <br />
+3. If the reminder, then it will trigger to the updated time. <br />
+
+Reminder uses Military Time (24h).
+
+Under Project 3 folder you will have access to all the necessary files that are needed. <br />
+
+//=====================================================================<br />
 # Nonogram-SE
 Software Engineer Project 2
 
