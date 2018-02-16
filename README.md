@@ -12,6 +12,7 @@ Note:<br />
 Reminder uses Military Time (24h).
 
 Under Project 3 -> FinalBuild folder you will have access to all the necessary files that are needed. <br />
+NOTE: have the Current.pro match your .pro file <br />
 
 //=====================================================================<br />
 # Nonogram-SE
