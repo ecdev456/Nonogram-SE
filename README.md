@@ -11,7 +11,7 @@ Note:<br />
 
 Reminder uses Military Time (24h).
 
-Under Project 3 folder you will have access to all the necessary files that are needed. <br />
+Under Project 3 -> FinalBuild folder you will have access to all the necessary files that are needed. <br />
 
 //=====================================================================<br />
 # Nonogram-SE
