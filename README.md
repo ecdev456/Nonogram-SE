@@ -8,11 +8,13 @@ Note:<br />
 1. When the Reminder time is reached, the Update and Remove lists will be updated. <br />
 2. If the Reminder is removed, the reminder will not trigger. <br />
 3. If the reminder, then it will trigger to the updated time. <br />
+4. Checks time every 4 seconds. (becuase of allowing systems to deal with load) <br />
 
 Reminder uses Military Time (24h).
 
 Under Project 3 -> FinalBuild folder you will have access to all the necessary files that are needed. <br />
 NOTE: have the Current.pro match your .pro file <br />
+DISCLAIMER: Closing the application will result in not saving the reminders! Just minimize the window.
 
 //=====================================================================<br />
 # Nonogram-SE
