@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-//Library setData;
+//Model setData;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

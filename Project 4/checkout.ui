@@ -36,14 +36,28 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="doneButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>310</y>
-     <width>75</width>
-     <height>23</height>
+     <x>304</x>
+     <y>302</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="checkoutText">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>321</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(6, 6, 6);</string>
    </property>
   </widget>
  </widget>
