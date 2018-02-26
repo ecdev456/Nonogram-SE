@@ -16,7 +16,8 @@ public:
     ~Checkout();
 
 private slots:
-    void on_buttonBox_accepted();
+
+    void on_doneButton_clicked();
 
 private:
     Ui::Checkout *ui;

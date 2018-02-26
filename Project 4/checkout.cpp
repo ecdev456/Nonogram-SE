@@ -13,7 +13,8 @@ Checkout::~Checkout()
     delete ui;
 }
 
-void Checkout::on_buttonBox_accepted()
+
+void Checkout::on_doneButton_clicked()
 {
     close();
 }
