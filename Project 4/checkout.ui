@@ -42,6 +42,20 @@ p, li { white-space: pre-wrap; }
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Nueva Std Cond</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>Done</string>
    </property>

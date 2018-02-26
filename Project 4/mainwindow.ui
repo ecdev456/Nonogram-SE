@@ -54,7 +54,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <item>
      <property name="text">
-      <string>The Design and Analysis of Algorithms -- 3rd Edition</string>
+      <string>Philosophy Debate, George Kay</string>
      </property>
      <property name="font">
       <font>
@@ -85,7 +85,7 @@ p, li { white-space: pre-wrap; }
     </item>
     <item>
      <property name="text">
-      <string>The C++ Programming Language -- 4th Edition</string>
+      <string>Intro to Logic, Jordan McNeil</string>
      </property>
      <property name="font">
       <font>
@@ -105,7 +105,7 @@ p, li { white-space: pre-wrap; }
     </item>
     <item>
      <property name="text">
-      <string>Harry Potter and the Half Blood Prince </string>
+      <string>CS 1001, David Yang</string>
      </property>
      <property name="font">
       <font>
@@ -125,7 +125,7 @@ p, li { white-space: pre-wrap; }
     </item>
     <item>
      <property name="text">
-      <string>Harry Potter and the Prisoner of Azkaban</string>
+      <string>Human Biology, Barbara Goche</string>
      </property>
      <property name="font">
       <font>
@@ -145,116 +145,7 @@ p, li { white-space: pre-wrap; }
     </item>
     <item>
      <property name="text">
-      <string>Harry Potter and the Sorceror's Stone</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Plantagenet Cherokee</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="foreground">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>231</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Computer Networks: A Systems Approach -- 5th Edition</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Plantagenet Cherokee</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="foreground">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>231</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Operating Systems Concepts -- 9th Edition</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Plantagenet Cherokee</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="background">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>255</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-     <property name="foreground">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>234</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Elements of Algebraic Coding -- 2nd Edition</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Plantagenet Cherokee</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="foreground">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>234</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>The Notebook</string>
-     </property>
-     <property name="font">
-      <font>
-       <family>Plantagenet Cherokee</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="foreground">
-      <brush brushstyle="NoBrush">
-       <color alpha="255">
-        <red>231</red>
-        <green>0</green>
-        <blue>0</blue>
-       </color>
-      </brush>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>The Lucky One</string>
+      <string>Database Architecture, Greg Barish</string>
      </property>
      <property name="font">
       <font>
