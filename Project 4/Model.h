@@ -30,11 +30,37 @@ public:
 	*/
 
 	//void CheckOut() // Input from user and things udpated are: Book they want, their NetID, TimeDue[i] is updated to a time due for that book, BookInstance updated 
-	//void CheckIn()	//Result: Appropriate info has been reset to as they need to be
+    void CheckOut(string bookStats, int bookInst, string time, int x){ // input Book, instance, and time
+        BookInfo[x][0] = bookStats;
+        BookInstance[x] = bookInst;
+        TimeDue[x] = time;
+
+    }
+    //void CheckIn()	//Result: Appropriate info has been reset to as they need to be
+    void Checkin(int x){
+        BookInfo[x][0] = {};
+        BookInstance[x] = 0;
+        TimeDue[x] = {};
+    }
+
 	//void SetStudentInfo()	//Update Student info
+    void SetStudentInfo(string name, int x){ // Assuming Student info is only their name
+        Student[x] = name;
+
+    }
 	//void SetTimeDue()	//update time due
+    void SetTimeDue(string time, int x) {
+        TimeDue[x] = time;
+
+    }
 	//void setBookInstance() //update book isntance
+    void setBookInstance(int bookInst, int x){
+        BookInstance[x] = bookInst;
+
+    }
 	//bool CheckTimeDue() //String to string comparison will return true or false
+    // Considering we have no private boolean variable above, I have decided to ask if the above code is good
+    // before continueing to modify anymore code
 
 	string GetBookInfo(int x) //Simply Returns: "BookName, Author" as a string
 	{ 
