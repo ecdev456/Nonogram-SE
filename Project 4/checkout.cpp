@@ -14,6 +14,9 @@ Checkout::Checkout(QWidget *parent) :
 
 
     info = "Student: student id needs to turn in book by .... time/n";
+    //string S = "Student :"+ GetStudentInfo(x) + " must return book by: " + GetTimeDue(x);
+   //for (int i = 0; i < x; i++)
+   // cout << "Student: "<<Library.GetStudentInfo(i)<< " must return book by: " << Library.GetTimeDue(i)<<endl; 
     ui->checkoutText->setText(info);//QString::fromStdString((info)));
     info = "";
 }
