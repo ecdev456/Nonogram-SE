@@ -10,7 +10,8 @@ Start by installing the project and then adding the appropriate.dll file to the 
 All the files you need to get Project 4 are under the Project 4 folder. <br />
 
 Providing extra files incase you need them. <br />
-LINE 72 on Mainwindow.cpp is where you modify DueTime for check back in. (can be made sooner or later) 
+LINE 72 on Mainwindow.cpp is where you modify DueTime for check back in. (can be made sooner or later) <br />
+Added folder "Library" within "Project 4", it's what made dll possible<br />
 //=====================================================================<br />
 Software Engineer Project 3 <br />
 
