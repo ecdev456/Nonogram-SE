@@ -2,6 +2,11 @@ Software Engineering Project 4 <br />
 
 Using reminder application as a library for our new project (library reserves checkout system).<br />
 
+Adding a library requires a lot of steps, but there is this great video on youtube that shows you the steps to take. <br /> https://www.youtube.com/watch?v=9JTooLxhmC0 <br />
+
+Start buy installing the project and then adding the .dll file to the build folder of the project. From there make sure you add the path in the .pro file. LIBS += "path"
+
+
 //=====================================================================<br />
 Software Engineer Project 3 <br />
 
