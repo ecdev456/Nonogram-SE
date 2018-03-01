@@ -54,11 +54,11 @@ public:
     // Note for checkin.. Not sure if I did this right. Please fix if incorrect
     void Checkin(int x){
 
-        BookInfo[numStep][0] = {};
-        BookInstance[numStep] = 0;
-        TimeDue[numStep] = {};
-        numStep--;
-    }
+            BookInfo[x][0] = {};
+            BookInstance[x] = 0;
+            TimeDue[x] = {};
+            numStep--;
+        }
 
     //void SetStudentInfo()	//Update Student info
     void SetStudentInfo(string name){ // Assuming Student info is only their name
