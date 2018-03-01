@@ -1,8 +1,10 @@
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
 
+#include "Model.h"
 #include <QDialog>
 
+extern Library Edwin;
 namespace Ui {
 class Checkout;
 }

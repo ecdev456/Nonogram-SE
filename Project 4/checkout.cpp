@@ -4,7 +4,11 @@
 #include "Model.h"
 #include "mainwindow.h"
 
-Library library;
+
+#include <iostream>
+using namespace std;
+
+//Library library;
 
 Checkout::Checkout(QWidget *parent) :
     QDialog(parent),
@@ -19,24 +23,23 @@ Checkout::Checkout(QWidget *parent) :
 
 void Checkout::StudentInfo_CheckIn()
 {
-    QString Student = "ib7348"; //Example display
-    //string student
-
-    cout << library.getIndex() << endl;
-     ui->StudentInfo->setText(QString::fromStdString(library.GetStudentInfo(library.getIndex())));
+    string student = Edwin.GetTempName();
+    //QString Student = Edwin.GetTempName();
+          ui->StudentInfo->setText(QString::fromStdString(student));
 }
 
 void Checkout::BookInfo_CheckIn()
 {
-    QString book = "Raiders of the Lost Ark"; //Example display
-            ui->BookInfo->setText(book);
+    string book = Edwin.GetTempBook();
+     ui->BookInfo->setText(QString::fromStdString(book));
 }
 
 
 void Checkout::TimeInfo_CheckIn()
 {
-    QString timeCheck = "8:30 pm"; //Example Display
-            ui->TimeInfo->setText(timeCheck);
+        //cout << "Check: " << Edwin.GetTempTime() << endl;
+    string timeCheck = Edwin.GetTempTime();
+     ui->TimeInfo->setText(QString::fromStdString(timeCheck));
 }
 
 Checkout::~Checkout()
@@ -47,5 +50,7 @@ Checkout::~Checkout()
 
 void Checkout::on_doneButton_clicked()
 {
+    //Update Code goes here where we put setters.
+
     close();
 }
