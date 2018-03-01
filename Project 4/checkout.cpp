@@ -20,7 +20,10 @@ Checkout::Checkout(QWidget *parent) :
 void Checkout::StudentInfo_CheckIn()
 {
     QString Student = "ib7348"; //Example display
-            ui->StudentInfo->setText(Student);
+    //string student
+
+    cout << library.getIndex() << endl;
+     ui->StudentInfo->setText(QString::fromStdString(library.GetStudentInfo(library.getIndex())));
 }
 
 void Checkout::BookInfo_CheckIn()
