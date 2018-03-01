@@ -1,24 +1,39 @@
 #include "checkout.h"
 #include "ui_checkout.h"
 #include "string.h"
-//#include "Model.h"
-//#include "mainwindow.h"
+#include "Model.h"
+#include "mainwindow.h"
 
+Library library;
 
-QString info;
 Checkout::Checkout(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Checkout)
 {
     ui->setupUi(this);
 
+    StudentInfo_CheckIn();
+    BookInfo_CheckIn();
+    TimeInfo_CheckIn();
+}
 
-    info = "Student: student id needs to turn in book by .... time/n";
-    //string S = "Student :"+ GetStudentInfo(x) + " must return book by: " + GetTimeDue(x);
-   //for (int i = 0; i < x; i++)
-   // cout << "Student: "<<Library.GetStudentInfo(i)<< " must return book by: " << Library.GetTimeDue(i)<<endl; 
-    ui->checkoutText->setText(info);//QString::fromStdString((info)));
-    info = "";
+void Checkout::StudentInfo_CheckIn()
+{
+    QString Student = "ib7348"; //Example display
+            ui->StudentInfo->setText(Student);
+}
+
+void Checkout::BookInfo_CheckIn()
+{
+    QString book = "Raiders of the Lost Ark"; //Example display
+            ui->BookInfo->setText(book);
+}
+
+
+void Checkout::TimeInfo_CheckIn()
+{
+    QString timeCheck = "8:30 pm"; //Example Display
+            ui->TimeInfo->setText(timeCheck);
 }
 
 Checkout::~Checkout()

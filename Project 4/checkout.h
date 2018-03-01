@@ -14,7 +14,9 @@ class Checkout : public QDialog
 public:
     explicit Checkout(QWidget *parent = 0);
     ~Checkout();
-
+void StudentInfo_CheckIn();
+void BookInfo_CheckIn();
+void TimeInfo_CheckIn();
 private slots:
 
     void on_doneButton_clicked();
