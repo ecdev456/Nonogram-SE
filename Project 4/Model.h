@@ -1,12 +1,13 @@
 #pragma once
 
+#include <iostream>
 using namespace std;
 
 // All of this is hypothetical, not sure what Veronica and Tristan will be using but having flexibility for them is better
 //How to deal with Time:  TREAT TIME AS A STRING, just do a string to string to check if time has arrived
 
 class Library {
-
+friend class CheckOut;
 
 private:
     // Book Title [0][0] followed by the Book Author [0][1]
@@ -15,10 +16,12 @@ private:
         { "Human Biology", "Barbara Goche" } };
     int BookInstance[5] = { 1, 1, 1, 1, 1 }; // this will be an array of 1 or 0.   1: Book is Checked-In   0: Book is Checked-Out
     // will hold the Student NetID as a string (just default data here)
-    string Student[5] = { "Name Here" , "Name Here" , "Name Here" , "Name Here" , "Name Here" };
-
-    string TimeDue[5]; // Time is compared string to string in the format 'hh:mm'. Each [0], [1], [2] ,[3], [4] coresponds to the BookInfo, so treat them as together. i.e BookInfo[0] uses the TimeDue[0]
+    string Student[5] = { "" , "" , "" , "" , "" };
+    string TimeDue[5]{ "" , "" , "" , "" , "" }; // Time is compared string to string in the format 'hh:mm'. Each [0], [1], [2] ,[3], [4] coresponds to the BookInfo, so treat them as together. i.e BookInfo[0] uses the TimeDue[0]
     int numStep = 0;
+    string TempName;
+    string TempTime;
+    string TempIndex;
 
 
 public:
@@ -40,24 +43,26 @@ public:
      */
 
     //void CheckOut() // Input from user and things udpated are: Book they want, their NetID, TimeDue[i] is updated to a time due for that book, BookInstance updated
-    void CheckOut(string bookStats, int bookInst, string time){ // input Book, instance, and time
+   /*oid CheckOut(string bookStats, int bookInst, string time){ // input Book, instance, and time
         if(BookInfo[numStep][0] == bookStats){
         BookInstance[numStep] = bookInst;
         TimeDue[numStep] = time;
             numStep++;
-        }
-
-
-    }
+        }*/
+    void CheckOut(int index, string ID, string tm){
+          BookInstance[index-1] = 0; //Book has been checked out.
+          Student[index-1] = ID; //NetID added
+          TimeDue[index-1] = tm; //tm data string updates approprate location
+       }
 
     //void CheckIn()	//Result: Appropriate info has been reset to as they need to be
     // Note for checkin.. Not sure if I did this right. Please fix if incorrect
-    void Checkin(int x){
 
-            BookInfo[x][0] = {};
-            BookInstance[x] = 0;
-            TimeDue[x] = {};
-            numStep--;
+    void Checkin(int x)
+        {
+        BookInstance[x] = 1;
+        TimeDue[x] = "";
+        Student[x] = "";
         }
 
     //void SetStudentInfo()	//Update Student info
@@ -82,6 +87,21 @@ public:
         else
             return false;
     }
+    void SetTempName(string x)
+    {
+        TempName = x;
+    }
+    void SetTempTime(string y)
+    {
+        TempTime = y;
+    }
+    void SetTempBook(int v)
+    {
+        TempIndex += BookInfo[v][0] +", " + BookInfo[v][1];
+    }
+    string GetTempName(){return TempName;}
+    string GetTempTime() {return TempTime;}
+    string GetTempBook() {return TempIndex;}
 
     string GetBookInfo(int x) //Simply Returns: "BookName, Author" as a string
     {
@@ -94,3 +114,7 @@ public:
     string GetTimeDue(int x){ return TimeDue[x]; } //Simply returns the string of the particular TimeDue[i] for comparisons
 
 };
+extern Library TopLayer;
+extern Library library;
+
+

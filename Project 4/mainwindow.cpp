@@ -124,6 +124,7 @@ void MainWindow::updateTime()
             //automatically checks in books
             TopLayer.Checkin(i);
             cout << "book was checked back in" << endl;
+            break;
         }
     }
 
