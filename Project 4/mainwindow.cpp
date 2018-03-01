@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 #include "checkout.h"
 #include "Model.h"
-//#include "finallibrary.h"
+#include "finallibrary.h"
+#include "reminder.h"
 
 #include <QTimer>
 #include <QDateTime>
@@ -11,7 +12,7 @@ using namespace std;
 
 Library TopLayer;
 Library Edwin;
-//FinalLibrary Collect;
+FinalLibrary Collect;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -64,30 +65,22 @@ void MainWindow::on_pushButton_clicked()
                        QString bookNum = ui->bookNum->toPlainText();
                        int bookID = bookNum.toInt();
                        Edwin.SetTempBook(bookID);
-                      // BookData = TopLayer.GetBookInfo(bookNumber);
 
 
-
-                      // TimeDue = "6:00 PM";
-                       // Edwin.SetTempTime(TimeDue);
-                       cout << "id entered " << id << endl;
 
                        QTime check = QTime::currentTime();
                        //set to 7200 for 2 hours
-                       QTime checkOutTime = check.addSecs(60);
+                       //set to 60 for 1 minute
+                       //CHANGE THE DUE TIME HERE==========================================
+                       QTime checkOutTime = check.addSecs(7200);
+                       //==============================================================
                        QString timeC = checkOutTime.toString();
                        string cOutTime = timeC.toStdString();
 
                        TopLayer.SetTimeDue(cOutTime);
                        Edwin.SetTempTime(cOutTime);
 
-                     //  Collect.MakeReminder("Desctest", "EdwinTITLE", "6:00PM", "1/12/18");
-                   //    cout << "Test" << endl;
-                   //        Collect.CheckIN(1);
-                       //sends book number info to model
-                       //need a setter from model
-                    //   cout << "Book Number entered " << bookNumber << endl;
-
+                       Collect.MakeReminder("Book Due Date Arrived", "Book Check IN",cOutTime, "");
                        Checkout checkout;
                        checkout.setModal(true);
                        checkout.exec();
@@ -122,8 +115,14 @@ void MainWindow::updateTime()
         {
             //should trigger reminder window
             //automatically checks in books
+            TopLayer.SetIndex(i);
+            Reminder TArr;
+            TArr.setModal(true);
+            TArr.exec();
+
             TopLayer.Checkin(i);
-            cout << "book was checked back in" << endl;
+
+            //cout << "book was checked back in" << endl;
             break;
         }
     }

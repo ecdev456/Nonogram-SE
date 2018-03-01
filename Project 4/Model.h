@@ -17,12 +17,13 @@ private:
     int BookInstance[5] = { 1, 1, 1, 1, 1 }; // this will be an array of 1 or 0.   1: Book is Checked-In   0: Book is Checked-Out
     // will hold the Student NetID as a string (just default data here)
     string Student[5] = { "" , "" , "" , "" , "" };
-    string TimeDue[5]{ "" , "" , "" , "" , "" }; // Time is compared string to string in the format 'hh:mm'. Each [0], [1], [2] ,[3], [4] coresponds to the BookInfo, so treat them as together. i.e BookInfo[0] uses the TimeDue[0]
+
+    string TimeDue[5] = { "" , "" , "" , "" , "" }; // Time is compared string to string in the format 'hh:mm'. Each [0], [1], [2] ,[3], [4] coresponds to the BookInfo, so treat them as together. i.e BookInfo[0] uses the TimeDue[0]
     int numStep = 0;
     string TempName;
     string TempTime;
     string TempIndex;
-
+    int indexTemp;
 
 public:
 
@@ -35,34 +36,34 @@ public:
         }
     }
 
-    /*Notes: You may ask yourself why is there an "setBookInstance" fucntion when the "CheckOut" function can update that value for you?
-     Answer: Well we are giving Veronica and Tristan the flexibility to use what they'd like.
-
-     Commented functions need work, TEST your code prior to saying "Done".  All Getter functions are done and have been checked. Create you own main.cpp to test your things.
-     If you think of more things to add, by all means add them.
-     */
-
     //void CheckOut() // Input from user and things udpated are: Book they want, their NetID, TimeDue[i] is updated to a time due for that book, BookInstance updated
-   /*oid CheckOut(string bookStats, int bookInst, string time){ // input Book, instance, and time
+   /* void CheckOut(string bookStats, int bookInst, string time){
+
+
+        // input Book, instance, and time
         if(BookInfo[numStep][0] == bookStats){
         BookInstance[numStep] = bookInst;
         TimeDue[numStep] = time;
             numStep++;
-        }*/
+        }
+
+
+    }*/
     void CheckOut(int index, string ID, string tm){
-          BookInstance[index-1] = 0; //Book has been checked out.
-          Student[index-1] = ID; //NetID added
-          TimeDue[index-1] = tm; //tm data string updates approprate location
-       }
+         BookInstance[index-1] = 0; //Book has been checked out.
+         Student[index-1] = ID; //NetID added
+         TimeDue[index-1] = tm; //tm data string updates approprate location
+         }
+
 
     //void CheckIn()	//Result: Appropriate info has been reset to as they need to be
     // Note for checkin.. Not sure if I did this right. Please fix if incorrect
+    void Checkin(int x){
 
-    void Checkin(int x)
-        {
-        BookInstance[x] = 1;
-        TimeDue[x] = "";
-        Student[x] = "";
+            BookInfo[x][0] = {};
+            BookInstance[x] = 0;
+            TimeDue[x] = {};
+            numStep--;
         }
 
     //void SetStudentInfo()	//Update Student info
@@ -97,12 +98,16 @@ public:
     }
     void SetTempBook(int v)
     {
-        TempIndex += BookInfo[v][0] +", " + BookInfo[v][1];
+        TempIndex += BookInfo[v-1][0] +", " + BookInfo[v-1][1];
+    }
+    void SetIndex(int x)
+    {
+        indexTemp = x;
     }
     string GetTempName(){return TempName;}
     string GetTempTime() {return TempTime;}
     string GetTempBook() {return TempIndex;}
-
+    int GetIndex(){return indexTemp;}
     string GetBookInfo(int x) //Simply Returns: "BookName, Author" as a string
     {
         return (BookInfo[x][0] + ", " + BookInfo[x][1]);
@@ -116,5 +121,3 @@ public:
 };
 extern Library TopLayer;
 extern Library library;
-
-
